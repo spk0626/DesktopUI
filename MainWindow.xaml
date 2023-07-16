@@ -1,0 +1,52 @@
+﻿<Window x:Class="DesktopUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesktopUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        AllowsTransparency="True" Background="Transparent">
+    <Window.DataContext>
+        <local:MainWindowVM/>
+    </Window.DataContext>
+    <Grid>
+
+        <Border CornerRadius="15" BorderThickness="2.5">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1">
+                    <GradientStop Color="#90EE90" Offset="0"/>
+                    <GradientStop Color="#93C777" Offset="0.30"/>
+                    <GradientStop Color="#ffffe0" Offset="0.80"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1">
+                    <GradientStop Color="#03254c" Offset="0"/>
+                    <GradientStop Color= "#2a9df4" Offset="0.75"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+        </Border>
+
+        <StackPanel Height="430" VerticalAlignment="Top" Orientation="Vertical" >
+
+            <TextBlock Text="Student Data Management System" Margin="0 50 0 0" HorizontalAlignment="Center" FontSize="28" FontWeight="Bold" Foreground="#101D6B"/>
+
+            <TextBlock Text="Faculty of Engineering" Margin="0 80 0 0" HorizontalAlignment="Center" Foreground="DarkBlue" FontWeight="Bold" FontSize="16"/>
+            <TextBlock Text="University of Ruhuna" Margin="0 10 0 0" HorizontalAlignment="Center" Foreground="DarkBlue"  FontSize="16"/>
+
+            
+            <Button Content="ENTER" Command="{Binding EnterSystemCommand}" Height="50" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="80" Style="{StaticResource Button1}"/>
+                
+            
+
+
+
+        </StackPanel>
+
+
+
+    </Grid>
+</Window>
