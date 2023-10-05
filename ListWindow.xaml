@@ -1,14 +1,13 @@
-﻿<Window x:Class="DesktopUI.ListWindow"
+<Window x:Class="DesktopUI.ListWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopUI"
         mc:Ignorable="d"
+        Style="{StaticResource RoundedTransparentWindowStyle}"
         Title="ListWindow" Height="600" Width="900"
-        WindowStartupLocation="CenterScreen" WindowStyle="None"
-        AllowsTransparency="True" Background="Transparent">
-    
+        WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <local:ListVM/>
     </Window.DataContext>
@@ -17,15 +16,15 @@
         <Border CornerRadius="15" BorderThickness="2.5">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1">
-                    <GradientStop Color="#90EE90" Offset="0"/>
-                    <GradientStop Color="#93C777" Offset="0.30"/>
-                    <GradientStop Color="#ffffe0" Offset="0.80"/>
+                    <GradientStop Color="#4f8e64" Offset="0.2"/>
+                    <GradientStop Color="#B5E8A4" Offset="0.45"/>
+                    <GradientStop Color="#4f8e64" Offset="0.85"/>
                 </LinearGradientBrush>
             </Border.Background>
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1">
-                    <GradientStop Color="#03254c" Offset="0"/>
-                    <GradientStop Color= "#2a9df4" Offset="0.75"/>
+                    <GradientStop Color="#213c2b" Offset="0"/>
+                    <GradientStop Color= "#437956" Offset="0.75"/>
                 </LinearGradientBrush>
             </Border.BorderBrush>
         </Border>
@@ -33,7 +32,7 @@
 
         <StackPanel Orientation="Vertical">
 
-            <TextBlock Text="LIST OF STUDENTS" Margin="0 50 0 0" Width="190" Style="{StaticResource Headertext}" Foreground="#256100" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" />
+            <TextBlock Text="LIST OF STUDENTS" Margin="0 40 0 0" Width="150" Style="{StaticResource Headertext}" Foreground="#16281c" FontWeight="Bold" HorizontalAlignment="Center" />
 
             <StackPanel Width="900" Height="400" Margin=" 0 10 0 0"  VerticalAlignment="Top" Orientation="Horizontal">
 
@@ -41,7 +40,7 @@
                     <Button Content="Add Student" Margin=" 40 40 0 0" Command="{Binding AddStudentCommand}" Height="80" Width="80" FontSize="18" HorizontalAlignment="Left" Style="{StaticResource Button1}">
                         <Button.ContentTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding}" TextWrapping="Wrap" TextAlignment="Center"/>
                             </DataTemplate>
                         </Button.ContentTemplate>
                     </Button>
@@ -71,8 +70,8 @@
                         <TextBlock Text="Gpa"  Style="{StaticResource Headertext}" Margin=" 60 20 0 0"  />
                     </StackPanel>
 
-                    <Separator Height="2" Background="#18615f" Margin="10 15 10 0"/>
-                    <ListView x:Name="Listview"  Margin="0 20 0 0" HorizontalAlignment="center" Background="#d3feb9" Height="280" ItemsSource="{Binding Students,UpdateSourceTrigger=PropertyChanged}"
+
+                    <ListView x:Name="Listview"  Margin="0 20 0 0" HorizontalAlignment="center" Background="#8dd5a6" Height="280" ItemsSource="{Binding Students,UpdateSourceTrigger=PropertyChanged}"
                               SelectedItem="{Binding SelectedPerson,UpdateSourceTrigger=PropertyChanged}">
                         <ListView.ItemTemplate >
                             <DataTemplate>
