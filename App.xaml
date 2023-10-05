@@ -1,11 +1,25 @@
-﻿<Application x:Class="DesktopUI.App"
+<Application x:Class="DesktopUI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:local="clr-namespace:DesktopUI"
-             StartupUri="MainWindow.xaml"
-             xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+             StartupUri="MainWindow.xaml">
     <Application.Resources>
+
+
+        <Style x:Key="RoundedTransparentWindowStyle" TargetType="Window">
+            <Setter Property="WindowStyle" Value="None" />
+            <Setter Property="AllowsTransparency" Value="True" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <Border Background="Transparent" CornerRadius="15">
+                            <ContentPresenter />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
         <Style x:Key="Titletext" TargetType="TextBlock" >
             <Setter Property="FontSize" Value="35"/>
@@ -32,7 +46,7 @@
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="FontFamily" Value="times new roman"/>
             <Setter Property="TextAlignment" Value="Left"/>
-            <Setter Property="Foreground" Value="DarkBlue" />
+            <Setter Property="Foreground" Value="#213c2b" />
             <Setter Property="Margin" Value="10 "/>
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -48,9 +62,8 @@
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Width" Value="186"/>
             <Setter Property="Height" Value="40"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="DarkBlue"/>
-            <Setter Property="Background" Value="Wheat" />
+            <Setter Property="Foreground" Value="#c6ead2"/>
+            <Setter Property="Background" Value="#386548" />
             <Setter Property="Margin" Value="40 00 40 00" />
 
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
@@ -58,7 +71,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" BorderThickness="1.5" BorderBrush="#db96ff" Padding="10" CornerRadius="15">
+                        <Border Background="{TemplateBinding Background}" BorderThickness="1.5" BorderBrush="Aqua" Padding="10" CornerRadius="15">
                             <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
@@ -68,12 +81,12 @@
             
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="Purple"/>
-                    <Setter Property="Foreground" Value="DeepSkyBlue"/>
+                    <Setter Property="Background" Value="Black"/>
+                    <Setter Property="Foreground" Value="White"/>
 
                 </Trigger>
                 <Trigger Property="IsMouseCaptured" Value="True">
-                    <Setter Property="Background" Value="LightBlue"/>
+                    <Setter Property="Background" Value="#213c2b"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -83,14 +96,13 @@
             <Setter Property="FontFamily" Value="montserrat"/>
             <Setter Property="Width" Value="100"/>
             <Setter Property="Height" Value="50"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Background" Value="SkyBlue"/>
-            <Setter Property="Background" Value="#248f79"/>
+            <Setter Property="Foreground" Value="#ffffff"/>
+            <Setter Property="Background" Value="#213c2b"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" BorderThickness="2.5" BorderBrush="DarkBlue" CornerRadius="15" Margin="5">
+                        <Border Background="{TemplateBinding Background}" BorderThickness="2.5" BorderBrush="#213c2b" CornerRadius="15" Margin="5">
                             <ContentPresenter VerticalAlignment="Center" HorizontalAlignment ="Center"/>
                         </Border>
                     </ControlTemplate>
@@ -99,56 +111,29 @@
 
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="Purple"/>
+                    <Setter Property="Background" Value="#437956"/>
                     <Setter Property="Foreground" Value="FloralWhite"/>
 
                 </Trigger>
                 <Trigger Property="IsMouseCaptured" Value="True">
-                    <Setter Property="Background" Value="LightBlue"/>
+                    <Setter Property="Background" Value="#213c2b"/>
                 </Trigger>
             </Style.Triggers>
 
         </Style>
-
-        <Style x:Key="CloseButton" TargetType="Icon:PackIconMaterial">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Background" Value="#6e7783"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-            <Setter Property="Height" Value="30" />
-            <Setter Property="Width" Value="30" />
-            <Setter Property="Cursor" Value="Hand" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="Template" >
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="50">
-                            <ContentPresenter HorizontalAlignment="Right" VerticalAlignment="Top"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="AliceBlue"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
-        
 
         <Style x:Key="Savebutton" TargetType="Button">
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="FontFamily" Value="montserrat"/>
             <Setter Property="Width" Value="100"/>
             <Setter Property="Height" Value="50"/>
-            <Setter Property="Background" Value="#C576F6"/>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#213c2b"/>
+            <Setter Property="Foreground" Value="#c6ead2"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" BorderThickness="2.5" BorderBrush="#A020F0" CornerRadius="10" Margin="5">
+                        <Border Background="{TemplateBinding Background}" BorderThickness="2.5" BorderBrush="Black" CornerRadius="10" Margin="5">
                             <ContentPresenter VerticalAlignment="Center" HorizontalAlignment ="Center"/>
                         </Border>
                     </ControlTemplate>
@@ -157,12 +142,12 @@
 
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#d0cfff"/>
+                    <Setter Property="Background" Value="#000000"/>
                     <Setter Property="Foreground" Value="FloralWhite"/>
 
                 </Trigger>
                 <Trigger Property="IsMouseCaptured" Value="True">
-                    <Setter Property="Background" Value="#B24BF3"/>
+                    <Setter Property="Background" Value="#213c2b"/>
                 </Trigger>
             </Style.Triggers>
             
